@@ -17,4 +17,4 @@ print(f"{len(ratings):,} ratings, {len(movies):,} movies, {len(users):,} users")
 
 human_part1(ratings, ratings_df, movies, movies_df, users, users_df)
 human_part2(ratings, ratings_df, movies, movies_df)
-human_part3(ratings, ratings_df, movies, movies_df)
+human_part3(ratings, ratings_df, movies, movies_df, users_df)

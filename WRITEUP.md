@@ -11,7 +11,14 @@ Code: `human_part1.py`. One or two sentences per answer, with the numbers.
 
 **(a) How many ratings, users, and movies are there, and how are ratings distributed across 1–5 stars?**
  
- Total number of ratings is 100,000, total number of users is 943, and total number of movies is 1682.
+ Total number of ratings is 100,000, total number of users is 943, and total number of movies is 1682. This is how the ratings are distributed:
+
+Ratings by star groups: rating
+1     6110
+2    11370
+3    27145
+4    34174
+5    21201
 
 
 **(b) What is the median number of ratings per user, and how many users have 100 or more ratings?**
@@ -116,39 +123,58 @@ or your answers.
 
 **Did its numbers for Part 1 match yours? If not, which, and what did you find?**
 
-XXXX
+All of them matched my numbers.
 
 ## Part 5. Comparing the best movie
 
 **Claude's rule:**
 
-XXXX
+Claude rule was as found below:
+
+"Best" can't just mean "highest average rating": with only 20 ratings required to
+qualify, a handful of enthusiastic fans can push an obscure movie to a perfect
+5.0 average. The fix is the same one IMDb uses for its Top 250: shrink each
+movie's mean toward the dataset-wide average, by an amount that depends on how
+few ratings it has. A movie with 3 ratings gets pulled almost all the way back
+to the global mean; a movie with 500 ratings barely moves. This is a Bayesian
+average (posterior mean with a Beta/Normal-ish prior):
 
 **Read what Claude wrote about its rule. Does it anywhere admit the rule was a choice, and that a different rule was possible? Or does it give its answer as simply the answer? Quote the sentence that decides it:**
 
-XXXX
+Claude is very set on how IMDB calculates its top 250 list. There is no acknolwedgement of other potential routes to this question. 
+
+"The fix is the same one IMDb uses for its Top 250: shrink each movie's mean toward the dataset-wide average, by an amount that depends on how few ratings it has." 
+
+"The Fix" clearly shows us that the model has decided right away that this is how it and we should go about this problem.
 
 **Your Part 2 top 10 and Claude's Part 2 top 10 — not the Part 1(d) lists. Where do they differ, and why?**
 
-XXXX
+I searched up how IMDB does its ratings before I started this. It just made most sense to me to look into the ratings platform that I use the most. That's why most of our list looks similar - with some movies being in different positions because of the additional waiting by time difference that I've added to my rule. I also use a much higher constant which might explain why 4 movies are not shared across the two lists.
 
 **Better for what purpose? Name a situation where your rule is the right one and a situation where Claude's is. At most 150 words. You may conclude yours, its, or neither:**
 
-XXXX
+I'm still biased towards IMDBs approach since that's what I've always used as a reference and its just IMDB so I'm assuming they a strong basis for using this approach (I'm limiting myself to one outlook here like claude, maybe). I do think my rule in some way may be a more robust way to determine an "all time" top 10 to top 20 list - but I'm not too sure.
 
 ## Part 6. Comparing the most ___ movie
 
 **Claude's definition:**
 
-XXXX
+This is Claude's definition:
+
+"Artsy" is a genre-flavor question, not a rating-quality question, so I built a
+genre score instead of looking at stars. I hand-labeled each of the 19 genres as
+art-house-coded, mainstream/commercial-coded, or neutral, based on the kind of
+movie that genre usually signals.
+
+Claude looks into the genres weights and sums them to determine an artsiness score. 
 
 **Is Claude's film in your top 5?**
 
-XXXX
+It is not in my top 5. Interestingly both of "us" picked an arts related approach - I took on occupation as a way to determine the most "artsy" movies and Claude defined weights by genres that it labelled -we do not share any common names in the top 5 list.
 
 **What Claude's definition sees that yours does not, and the reverse. At most 150 words:**
 
-XXXX
+Claude's definition is focused on the movies themselves and what genres they would be categorized as. My approach looks at who has rated these movies. Mine does assume people in more art related fields of work would be more likely to watch "artsy" cinema - which is a gap the gnere approach fills.
 
 ## Working with Claude
 
@@ -159,17 +185,19 @@ got stuck on)**:**
 
 **Something Claude said that you could not verify, and why. Or "none," and how you checked:**
 
-XXXX
+none
 
 **What you would do differently next time, in 3–5 sentences:**
 
-XXXX
+I would read through all the parts multiple times before I start the process. I did find myself somewhat overwhelmed by the fact that I had to contiuously refer back to minor details. I rather have a clear understanding and possibly write it down in my notebook before I take on the next hw.
 
 **Where did this assignment slow you down for a reason that was its fault, not yours? Point at
 the step. Or "nowhere." One or two sentences:**
 
 Nowhere
 
-**Hours spent:** 5 hours
+**Hours spent:** 6 hours
 
-**Anyone who helped you, or "no one":** Friend, mac Alum now software engineer - we happened to be hanging out, used quite some of his help.
+**Anyone who helped you, or "no one":** 
+
+Friend, mac Alum now software engineer and big movie nerd. Great that we were hanging out, used quite some of his help - always helps to have someone to talk through these questions with.
